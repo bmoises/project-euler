@@ -9,20 +9,18 @@ class Fibonacci
   def each
     while true
       break if !@continue
-      if @current == 0
-        @n1 = 1
-        @current = 1
-        yield 1
-      elsif @current == 1
-        @n2 = 2
-        @current = 2
-        yield 2
-      else
+      if @current >= 2
         @current = @n2 + n1
         @n1 = @n2
         @n2 = @current
-        yield @current
+      elsif @current == 0
+        @n1 = 1
+        @current = 1
+      elsif @current == 1
+        @n2 = 2
+        @current = 2
       end
+      yield @current
     end
   end
   
